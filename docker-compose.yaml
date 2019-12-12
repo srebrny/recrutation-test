@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  proxy:
+    image: nginx:latest
+    volumes:
+    - "./code/:/app/:ro"
+    depends_on:
+      - php
+    ports:
+      - "80:80"
+
+  php:
+    image: php:fpm
+    volumes:
+    - "./code/:/app/:rw"
+    depends_on:
+      - database
+
+  database:
+    image: mariadb:latest
+    volumes:
+      - "mysql_db:/var/lib/mysql"
+
+  composer:
+    image: composer:latest
+    volumes:
+    - "./code/:/app/:rw"
+
+
+volumes:
+  mysql_db: ~
+  composer_cache: ~
