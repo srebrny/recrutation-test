@@ -3,8 +3,9 @@
 
 namespace IpQuery;
 
+use IpCore\Interfaces\IpQueryInterface;
 
-class IpQuery
+class IpQuery implements IpQueryInterface
 {
     private $ip = "";
 
