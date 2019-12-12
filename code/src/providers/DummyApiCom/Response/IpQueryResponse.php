@@ -80,7 +80,6 @@ class IpQueryResponse implements IpQueryResponseInterface
     {
         $obj = json_decode($jsonResponse);
 
-        var_dump($obj);
         return new IpQueryResponse(
             $obj->query,
             $obj->status,

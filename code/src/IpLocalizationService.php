@@ -4,7 +4,7 @@
 namespace IpQuery;
 
 
-class IpQueryService
+class IpLocalizationService
 {
     public static function fromString(string $ipAddress): IpQuery
     {

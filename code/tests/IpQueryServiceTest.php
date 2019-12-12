@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use IpQuery\IpQueryService;
+use IpQuery\IpLocalizationService;
 use PHPUnit\Framework\TestCase;
 use IpQuery\IpQuery;
 
@@ -17,7 +17,7 @@ final class IpQueryServiceTest extends TestCase
     {
         $this->assertInstanceOf(
             IpQuery::class,
-            IpQueryService::fromString(self::VALID_IP)
+            IpLocalizationService::fromString(self::VALID_IP)
         );
     }
 
@@ -25,14 +25,14 @@ final class IpQueryServiceTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
 
-        IpQueryService::fromString(self::INVALID_IP);
+        IpLocalizationService::fromString(self::INVALID_IP);
     }
 
     public function testCanBeUsedAsString(): void
     {
         $this->assertEquals(
             'localization',
-            IpQueryService::fromString(self::VALID_IP)
+            IpLocalizationService::fromString(self::VALID_IP)
         );
     }
 }
